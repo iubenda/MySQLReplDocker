@@ -13,6 +13,8 @@ services:
         networks:
             replication_network:
                 ipv4_address: ${MASTER_1_HOST_IP}
+        ports:
+            - 3316:3306
     common_slave_1:
         image: mysql:5.7.27
         container_name: ${SLAVE_1_HOSTNAME}
@@ -26,6 +28,8 @@ services:
         networks:
             replication_network:
                 ipv4_address: ${SLAVE_1_HOST_IP}
+        ports:
+            - 3326:3306
     common_master_2:
         container_name: ${MASTER_2_HOSTNAME}
         image: mysql:5.7.27
